@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preção de banana – Transforme sua casa em um lar acolhedor economizando</title>
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-…"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    
+    <!-- Tiny-Slider CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/tiny-slider.css"
+      crossorigin="anonymous"
+    />
+
+    <!-- Link para arquivo CSS local -->
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+
+    <!-- Cabeçalho com logo local -->
+    <header class="site-header">
+      <img src="images/logo.png" alt="Achadinhos da Pri Logo" class="logo">
+
+      <div class="social-icons">
+        <!-- WhatsApp -->
+        <a href="https://chat.whatsapp.com/JtG7OwE1yEgJg9sCAVL0oK" target="_blank">
+          <i class="fab fa-whatsapp fa-2x"></i>
+        </a>
+
+        <!-- Instagram -->
+        <a href="https://www.instagram.com/precaodebanana?igsh=dmY2cXF2a3dsNjdy" target="_blank">
+          <i class="fab fa-instagram fa-2x"></i>
+        </a>
+      </div>
+    </header>
+
+    <main>
+      <!-- Seção Hero -->
+      <section class="hero container-principal">
+        <section class="mainText">
+          <p>Para quem ama <strong>pagar barato</strong>, compartilho todos os dias os melhores achadinhos da internet com <strong>cupons</strong> e <strong>promoções</strong> exclusivas em casa, beleza, moda, decoração e muito mais... com <strong>até 70%</strong> de desconto!</p>
+          <!-- <a href="https://chat.whatsapp.com/DKeqVpYb5PdCeERowKprUH" class="btn-primary" target="_blank">QUERO ENTRAR NO GRUPO AGORA</a> -->
+  
+          <!-- CONTAINER do slider -->
+          <div class="my-slider">
+            <div><img src="images/slider-lojas/magalu.png"   alt="Magazine Luiza"></div>
+            <div><img src="images/slider-lojas/carrefour.png" alt="Carrefour"></div>
+            <div><img src="images/slider-lojas/netshoes.png" alt="Netshoes"></div>
+            <div><img src="images/slider-lojas/nike.png"     alt="Nike"></div>
+            <div><img src="images/slider-lojas/shein.png"     alt="Shein"></div>
+            <div><img src="images/slider-lojas/shopee.png" alt="Shopee"></div>
+            <div><img src="images/slider-lojas/americanas.png"     alt="Americanas"></div>
+            <div><img src="images/slider-lojas/amazon.png"     alt="Amazon"></div>
+  
+            <div><img src="images/slider-lojas/magalu.png"   alt="Magazine Luiza"></div>
+            <div><img src="images/slider-lojas/carrefour.png" alt="Carrefour"></div>
+            <div><img src="images/slider-lojas/netshoes.png" alt="Netshoes"></div>
+            <div><img src="images/slider-lojas/nike.png"     alt="Nike"></div>
+            <div><img src="images/slider-lojas/shein.png"     alt="Shein"></div>
+            <div><img src="images/slider-lojas/shopee.png" alt="Shopee"></div>
+            <div><img src="images/slider-lojas/americanas.png"     alt="Americanas"></div>
+            <div><img src="images/slider-lojas/amazon.png"     alt="Amazon"></div>
+          </div>
+        </section>
+
+
+        <!-- Estatística de usuários -->
+        <section class="stats">
+          <p><strong>+5.000 pessoas</strong> recebem nossas promoções todos os dias e compram com desconto nas mesmas lojas que você compra diariamente.</p>
+          <img src="images/groupMembers.png">
+        </section>
+
+      
+        <!-- Segunda chamada à ação -->
+        <section class="cta">
+          <a href="https://chat.whatsapp.com/JtG7OwE1yEgJg9sCAVL0oK" class="btn-secondary" target="_blank"> <i class="fab fa-whatsapp fa-2x"></i> &nbsp;QUERO ENTRAR NO GRUPO AGORA</a>
+        </section>
+
+
+        <section class="isTrustable">
+          <h4><strong>É CONFIÁVEL?</strong></h4>
+          <p>Sim, somente moderadores do grupo pode enviar promoções exclusivas no grupo com links verificados e 100% seguro.</p>
+        </section>
+      </section>
+    </main>
+
+    <!-- Rodapé com ícones sociais locais -->
+    <footer class="site-footer">
+      <div class="social-icons">
+      <p>© <span id="year"></span> Preção de banana. Todos os direitos reservados.</p>
+    </footer>
+
+    <!-- Script local para interações (ex.: carrossel) -->
+    <script>
+      // Atualiza ano do rodapé
+      document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+
+    <!-- Tiny-Slider JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/min/tiny-slider.js"></script>
+    <script>
+      // Certifique-se de rodar após o tiny-slider carregar
+      document.addEventListener('DOMContentLoaded', () => {
+        tns({
+          container: '.my-slider',
+          items: 5,              // quantas aparecem ao mesmo tempo
+          slideBy: 1,
+          // gutter: 80,            // espaço entre logos em px
+          autoplay: true,
+          autoplayTimeout: 1000,    // sem pausa entre slides
+          speed: 1000,           // tempo em ms para percorrer um slide
+          autoplayHoverPause: false,
+          controls: false,
+          nav: false,
+          loop: true
+        });
+      });
+    </script>
+
+  </body>
+</html>

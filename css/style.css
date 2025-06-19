@@ -1,0 +1,241 @@
+/* Variáveis de cores */
+:root {
+  --primary-color: #f8b50f;    /* Amarelo da logo */
+  --secondary-color: #000000;  /* Preto da logo */
+  --text-color: #000000;       /* Texto escuro */
+  --background-color: #FFFFFF; /* Fundo branco */
+}
+
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--background-color);
+  color: var(--text-color);
+  display: flex;
+  flex-direction: column;
+  font-family: 'Poppins', sans-serif;
+  min-height: 100vh;
+}
+
+/* Cabeçalho */
+.site-header {
+  /* background: var(--background-color); */
+  background: var(--secondary-color);
+  padding: 0.5rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px
+}
+
+.site-header .logo {
+  max-width: 150px;
+  height: auto;
+}
+
+.social-icons {
+  display: flex;
+  margin-bottom: 10px;
+  gap: 15px;
+}
+
+.social-icons i {
+  color: var(--secondary-color);
+  background: var(--primary-color);
+  padding: 5px;
+  font-size: 28px;
+  border-radius:10px;
+}
+
+.social-icons .fa-whatsapp {
+  transition: 0.2s;
+  background: #48c454;
+  color: white;
+}
+
+.social-icons .fa-whatsapp:hover {
+  background: #1b9d28;
+  color: white;
+  transform: scaleX(1.1) scaleY(1.1);
+}
+
+.social-icons .fa-instagram {
+  transition: 0.2s;
+  background: #833ab4;
+  background: linear-gradient(
+    to right,
+    #833ab4,#fd1d1d,#fcb045
+  );
+  color: white;
+}
+
+.social-icons .fa-instagram:hover {
+  background: #6b2d95;
+  transform: scaleX(1.1) scaleY(1.1);
+  background: linear-gradient(
+    to right,
+    #602b84,#bf1414,#bd7f29
+  );
+  color: white;
+}
+
+.container-principal {
+  border: 3px solid #002233;        /* cor escura da borda */
+  border-radius: 20px;              /* cantos arredondados */
+  padding: 20px;                    /* espaço interno */
+  max-width: calc(100% - 20px);                 /* largura máxima opcional */
+  margin: 20px ;                /* centraliza na tela */
+  background-color: var(--primary-color);        /* cor de fundo (igual ao fundo rosa da landing) */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* sombra leve opcional */
+}
+
+main {
+  background-color: var(--primary-color);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Hero */
+.hero {
+  background: var(--primary-color);
+  color: var(--secondary-color);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 1rem 0 1rem;
+  gap: 20px;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  max-width: 600px;
+  margin: 0 auto 2rem;
+  line-height: 1.5;
+  font-size: 1.125rem;
+}
+
+/* Botão primário */
+.btn-primary {
+  display: inline-block;
+  background: var(--secondary-color);
+  color: #ffffff;
+  text-decoration: none;
+  padding: 1rem 2rem;
+  font-size: 1.125rem;
+  border-radius: 6px;
+  transition: opacity 0.2s;
+}
+
+.btn-primary:hover {
+  opacity: 0.8;
+}
+
+.mainText {
+  /* background: blue; */
+}
+
+/* ================ Slider de Logos ================ */
+
+.my-slider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.my-slider img {
+  display: block;
+  max-width: 50px;
+  margin: 0 auto;
+}
+
+.tns-outer button {
+  display: none;
+}
+
+/* Estatística */
+.stats {
+  text-align: center;
+  margin: 1rem 0;
+  /* background: red; */
+}
+
+.stats p {
+  font-size: 0.9rem;
+}
+
+.stats img {
+  max-width: 200px;
+}
+
+/* Membros */
+
+.members {
+  padding: 2rem;
+}
+
+.members img{
+  max-width: 300px;
+}
+
+
+/* Segunda CTA */
+.cta {
+  text-align: center;
+  margin: 1rem 0;
+}
+
+.cta .fab {
+  font-size: 20px;
+}
+
+.btn-secondary {
+  display: inline-block;
+  background: var(--secondary-color);
+  color: white;
+  text-decoration: none;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  border-radius: 6px;
+  transition: transform 0.2s;
+}
+
+.btn-secondary:hover {
+  transform: translateY(-2px);
+}
+
+/* CONFIAVEL */
+
+.isTrustable{
+  display: flex;
+  flex-direction: column;
+}
+.isTrustable p, h4{
+  font-size: 0.8rem;
+  line-height: 1rem;
+}
+
+/* Rodapé */
+.site-footer {
+  background: var(--secondary-color);
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  margin-top: auto;
+  font-size: 0.875rem;
+  color: #ffffff;
+}
