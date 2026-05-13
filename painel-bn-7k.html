@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Painel · Preção de Banana</title>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --pink: #ff65c3;
+      --pink-dark: #d94aa3;
+      --pink-light: #ffd9ee;
+      --pink-soft: #fff5fb;
+      --text-dark: #2d0a1f;
+      --text-muted: #7a4d66;
+      --border: #f3d9e8;
+      --green: #16a34a;
+      --red: #dc2626;
+    }
+
+    body {
+      font-family: 'Sora', system-ui, sans-serif;
+      background: linear-gradient(160deg, #fff5fb 0%, #ffe1f1 100%);
+      color: var(--text-dark);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 0 20px 60px rgba(255, 101, 195, 0.18);
+      padding: 36px 32px;
+      width: 100%;
+      max-width: 520px;
+    }
+
+    h1 {
+      font-size: 22px;
+      font-weight: 800;
+      margin-bottom: 4px;
+      letter-spacing: -0.4px;
+    }
+    .subtitle {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 28px;
+    }
+
+    label {
+      display: block;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+      margin-top: 16px;
+    }
+
+    input[type="text"], input[type="password"], input[type="url"] {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1.5px solid var(--border);
+      border-radius: 10px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      color: var(--text-dark);
+      background: var(--pink-soft);
+      transition: border-color 0.15s, background 0.15s;
+    }
+    input:focus {
+      outline: none;
+      border-color: var(--pink);
+      background: #fff;
+    }
+
+    button {
+      width: 100%;
+      padding: 14px;
+      margin-top: 24px;
+      border: none;
+      border-radius: 12px;
+      background: var(--pink);
+      color: #fff;
+      font-family: 'Sora', sans-serif;
+      font-size: 15px;
+      font-weight: 800;
+      letter-spacing: 0.3px;
+      cursor: pointer;
+      transition: background 0.15s, transform 0.1s;
+    }
+    button:hover { background: var(--pink-dark); }
+    button:active { transform: translateY(1px); }
+    button:disabled { opacity: 0.6; cursor: not-allowed; }
+
+    .msg {
+      margin-top: 16px;
+      padding: 12px 14px;
+      border-radius: 10px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      display: none;
+    }
+    .msg.ok    { display: block; background: #dcfce7; color: var(--green); border: 1px solid #86efac; }
+    .msg.err   { display: block; background: #fee2e2; color: var(--red);   border: 1px solid #fca5a5; }
+    .msg.info  { display: block; background: var(--pink-light); color: var(--pink-dark); border: 1px solid #ffc4e3; }
+
+    .hidden { display: none !important; }
+
+    .help {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 6px;
+      line-height: 1.5;
+    }
+    .help a { color: var(--pink-dark); }
+
+    .row-actions {
+      display: flex;
+      gap: 10px;
+      margin-top: 8px;
+    }
+    .row-actions button {
+      margin-top: 0;
+      flex: 1;
+    }
+    .btn-ghost {
+      background: transparent;
+      color: var(--text-muted);
+      border: 1.5px solid var(--border);
+    }
+    .btn-ghost:hover { background: var(--pink-soft); color: var(--text-dark); }
+
+    .logo {
+      text-align: center;
+      font-size: 28px;
+      margin-bottom: 8px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <div class="logo">
+      <img src="images/logo2.jpeg" alt="Preção de banana" style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover;">
+    </div>
+    <h1>Painel Preção de Banana</h1>
+    <p class="subtitle">Alterar links do WhatsApp e Instagram</p>
+
+    <!-- LOGIN -->
+    <div id="login">
+      <label for="pwd">Senha</label>
+      <input type="password" id="pwd" autocomplete="current-password" placeholder="Digite a senha">
+      <button id="btn-login">Entrar</button>
+      <div id="login-msg" class="msg"></div>
+    </div>
+
+    <!-- PAINEL -->
+    <div id="painel" class="hidden">
+      <label for="wa">Link do WhatsApp</label>
+      <input type="url" id="wa" placeholder="https://chat.whatsapp.com/...">
+
+      <label for="ig">Link do Instagram</label>
+      <input type="url" id="ig" placeholder="https://www.instagram.com/...">
+
+      <label for="pat">Token do GitHub (PAT)</label>
+      <input type="password" id="pat" placeholder="ghp_...">
+      <p class="help">
+        Necessário para salvar. Fica salvo só no seu navegador.
+        <a href="https://github.com/settings/tokens/new?scopes=public_repo&description=Painel+Pre%C3%A7%C3%A3o+de+Banana" target="_blank">Gerar token</a>
+        (marque escopo <strong>public_repo</strong>).
+      </p>
+
+      <button id="btn-save">Salvar alterações</button>
+      <div class="row-actions">
+        <button class="btn-ghost" id="btn-logout">Sair</button>
+      </div>
+      <div id="save-msg" class="msg"></div>
+    </div>
+  </div>
+
+  <script>
+    // ============================================================
+    // CONFIGURAÇÃO
+    // ============================================================
+    // Para trocar a senha: altere a string abaixo.
+    const PASSWORD = 'banana2026';
+
+    // Repositório onde o links.json está versionado:
+    const REPO_OWNER  = 'tsequim';
+    const REPO_NAME   = 'lp-precao-de-banana';
+    const REPO_BRANCH = 'main';
+    const FILE_PATH   = 'links.json';
+    // ============================================================
+
+    const $ = id => document.getElementById(id);
+    const show = (el, type, text) => { el.className = 'msg ' + type; el.textContent = text; };
+    const hide = el => { el.className = 'msg'; el.textContent = ''; };
+
+    // ---------- LOGIN ----------
+    function tryLogin() {
+      const v = $('pwd').value;
+      if (v === PASSWORD) {
+        sessionStorage.setItem('pdb_auth', '1');
+        enterPainel();
+      } else {
+        show($('login-msg'), 'err', 'Senha incorreta.');
+      }
+    }
+
+    $('btn-login').addEventListener('click', tryLogin);
+    $('pwd').addEventListener('keydown', e => { if (e.key === 'Enter') tryLogin(); });
+
+    if (sessionStorage.getItem('pdb_auth') === '1') {
+      enterPainel();
+    }
+
+    function enterPainel() {
+      $('login').classList.add('hidden');
+      $('painel').classList.remove('hidden');
+      loadCurrent();
+      const savedPat = localStorage.getItem('pdb_pat');
+      if (savedPat) $('pat').value = savedPat;
+    }
+
+    $('btn-logout').addEventListener('click', () => {
+      sessionStorage.removeItem('pdb_auth');
+      location.reload();
+    });
+
+    // ---------- CARREGAR LINKS ATUAIS ----------
+    async function loadCurrent() {
+      try {
+        const r = await fetch(FILE_PATH + '?v=' + Date.now());
+        if (!r.ok) throw new Error();
+        const data = await r.json();
+        $('wa').value = data.whatsapp || '';
+        $('ig').value = data.instagram || '';
+      } catch {
+        show($('save-msg'), 'info', 'Não consegui carregar os links atuais — preencha manualmente.');
+      }
+    }
+
+    // ---------- SALVAR (GitHub API) ----------
+    $('btn-save').addEventListener('click', async () => {
+      const whatsapp = $('wa').value.trim();
+      const instagram = $('ig').value.trim();
+      const pat = $('pat').value.trim();
+      const msg = $('save-msg');
+
+      if (!whatsapp || !instagram) {
+        return show(msg, 'err', 'Preencha os dois links.');
+      }
+      if (!/^https?:\/\//.test(whatsapp) || !/^https?:\/\//.test(instagram)) {
+        return show(msg, 'err', 'Os links precisam começar com http:// ou https://');
+      }
+      if (!pat) {
+        return show(msg, 'err', 'Cole o token do GitHub.');
+      }
+
+      localStorage.setItem('pdb_pat', pat);
+
+      const apiBase = `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/${FILE_PATH}`;
+      const btn = $('btn-save');
+      btn.disabled = true;
+      show(msg, 'info', 'Salvando…');
+
+      try {
+        // 1) Pega SHA atual
+        const getRes = await fetch(apiBase + '?ref=' + REPO_BRANCH, {
+          headers: { 'Authorization': 'token ' + pat, 'Accept': 'application/vnd.github+json' }
+        });
+        if (!getRes.ok) throw new Error('Não consegui ler o arquivo (status ' + getRes.status + '). Verifique o token.');
+        const current = await getRes.json();
+
+        // 2) Monta novo conteúdo
+        const payload = { whatsapp, instagram };
+        const newJson = JSON.stringify(payload, null, 2) + '\n';
+        const newContent = btoa(unescape(encodeURIComponent(newJson)));
+
+        // 3) PUT
+        const putRes = await fetch(apiBase, {
+          method: 'PUT',
+          headers: {
+            'Authorization': 'token ' + pat,
+            'Accept': 'application/vnd.github+json',
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            message: 'chore: atualiza links via painel',
+            content: newContent,
+            sha: current.sha,
+            branch: REPO_BRANCH
+          })
+        });
+
+        if (!putRes.ok) {
+          const err = await putRes.json().catch(() => ({}));
+          throw new Error(err.message || 'Falha ao salvar (status ' + putRes.status + ').');
+        }
+
+        show(msg, 'ok', '✓ Links salvos! O site atualiza em ~1 minuto (deploy do GitHub Pages).');
+      } catch (e) {
+        show(msg, 'err', e.message || 'Erro ao salvar.');
+      } finally {
+        btn.disabled = false;
+      }
+    });
+  </script>
+
+</body>
+</html>
