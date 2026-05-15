@@ -172,6 +172,10 @@
       <label for="ig">Link do Instagram</label>
       <input type="url" id="ig" placeholder="https://www.instagram.com/...">
 
+      <label for="px">ID do Pixel da Meta</label>
+      <input type="text" id="px" inputmode="numeric" placeholder="ex.: 762247233492594">
+      <p class="help">Apenas o número do Pixel ID (sem o código completo). Deixe vazio para desativar.</p>
+
       <label for="pat">Token do GitHub (PAT)</label>
       <input type="password" id="pat" placeholder="ghp_...">
       <p class="help">
@@ -245,6 +249,7 @@
         const data = await r.json();
         $('wa').value = data.whatsapp || '';
         $('ig').value = data.instagram || '';
+        $('px').value = data.metaPixelId || '';
       } catch {
         show($('save-msg'), 'info', 'Não consegui carregar os links atuais — preencha manualmente.');
       }
@@ -254,6 +259,7 @@
     $('btn-save').addEventListener('click', async () => {
       const whatsapp = $('wa').value.trim();
       const instagram = $('ig').value.trim();
+      const metaPixelId = $('px').value.trim();
       const pat = $('pat').value.trim();
       const msg = $('save-msg');
 
@@ -262,6 +268,9 @@
       }
       if (!/^https?:\/\//.test(whatsapp) || !/^https?:\/\//.test(instagram)) {
         return show(msg, 'err', 'Os links precisam começar com http:// ou https://');
+      }
+      if (metaPixelId && !/^\d+$/.test(metaPixelId)) {
+        return show(msg, 'err', 'O ID do Pixel deve conter apenas números.');
       }
       if (!pat) {
         return show(msg, 'err', 'Cole o token do GitHub.');
@@ -283,7 +292,7 @@
         const current = await getRes.json();
 
         // 2) Monta novo conteúdo
-        const payload = { whatsapp, instagram };
+        const payload = { whatsapp, instagram, metaPixelId };
         const newJson = JSON.stringify(payload, null, 2) + '\n';
         const newContent = btoa(unescape(encodeURIComponent(newJson)));
 
