@@ -137,13 +137,14 @@
           document,'script','https://connect.facebook.net/en_US/fbevents.js');
         fbq('init', String(pixelId).trim());
         fbq('track', 'PageView');
+      }
 
-        const noscript = document.createElement('noscript');
-        const img = document.createElement('img');
-        img.height = 1; img.width = 1; img.style.display = 'none';
-        img.src = 'https://www.facebook.com/tr?id=' + encodeURIComponent(pixelId) + '&ev=PageView&noscript=1';
-        noscript.appendChild(img);
-        document.head.appendChild(noscript);
+      function attachLeadTracking() {
+        document.querySelectorAll('a[data-link="whatsapp"]').forEach(a => {
+          a.addEventListener('click', () => {
+            if (window.fbq) fbq('track', 'Lead');
+          });
+        });
       }
 
       fetch('links.json?v=' + Date.now())
@@ -159,6 +160,7 @@
           if (data.metaPixelId) {
             loadMetaPixel(data.metaPixelId);
           }
+          attachLeadTracking();
         })
         .catch(() => {});
     </script>
