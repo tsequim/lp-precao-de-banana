@@ -451,3 +451,41 @@ img { max-width: 100%; display: block; }
   .loja-tag { font-size: 11px; }
   .loja-tag img { width: 18px; height: 18px; }
 }
+
+/* ===== HERO: nova ordem (botão acima da dobra), mesmo visual de antes ===== */
+.hero {
+  min-height: 0;
+  align-items: flex-start;
+  padding: 32px 24px 48px;
+}
+.foto-wrap { width: 130px; height: 130px; margin-bottom: 20px; }
+.hero .grupo-tag {
+  background: none;
+  padding: 0;
+  font-size: 13px;
+  color: var(--white);
+  margin-bottom: 12px;
+}
+.hero h1 { margin-bottom: 14px; }
+.hero .sub { margin-bottom: 22px; }
+.hero .cta-wrap { margin-bottom: 28px; }
+.hero .cta-btn {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  max-width: 460px;
+  margin: 0 auto;
+}
+.hero-divider {
+  border: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.4);
+  max-width: 460px;
+  margin: 0 auto 22px;
+}
+.lojas-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 14px;
+}
+.hero .lojas { margin-bottom: 28px; animation: none; }
